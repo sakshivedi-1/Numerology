@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerology App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Numerology App</h1>
+    <p>Enter your birthdate to calculate your conductor number:</p>
+    <p>Example: If your birthdate is 28, calculate 2 + 8 = 10, then 1 + 0 = 1.</p>
+
+    <input type="number" id="numberInput" placeholder="Enter your number" min="1" max="9">
+    <button onclick="showMeaning()">Get Meaning</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const numerologyMeanings = {
+      1: "1 - Leadership, independence, and individuality.",
+      2: "2 - Cooperation, balance, and harmony.",
+      3: "3 - Creativity, self-expression, and communication.",
+      4: "4 - Hard work, stability, and practicality.",
+      5: "5 - Adventure, freedom, and versatility.",
+      6: "6 - Responsibility, care, and nurturing.",
+      7: "7 - Spirituality, introspection, and wisdom, strong intuition.",
+      8: "8 - Power, ambition, and material success.",
+      9: "9 - Compassion, idealism, and global thinking."
+    };
+
+    function showMeaning() {
+      const numberInput = document.getElementById("numberInput").value;
+      const resultDiv = document.getElementById("result");
+
+      if (numberInput === "") {
+        resultDiv.textContent = "Please enter a number.";
+        resultDiv.style.color = "red";
+        return;
+      }
+
+      const number = parseInt(numberInput, 10);
+
+      if (number >= 1 && number <= 9) {
+        resultDiv.textContent = numerologyMeanings[number];
+        resultDiv.style.color = "#333";
+      } else {
+        resultDiv.textContent = "Please enter a valid number between 1 and 9.";
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
